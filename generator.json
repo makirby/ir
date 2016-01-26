@@ -1,0 +1,578 @@
+{
+	"baseName": "inforugby",
+	"entities": [
+		{
+			"name": "competition",
+			"attrs": [
+				{
+					"attrName": "name",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "competition_text",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "img_location",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "icon_location",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "competition_type",
+					"attrType": "Enum",
+					"enumValues": [
+						"league",
+						" knockout",
+						" league-knockout",
+						" test-series",
+						" friendly"
+					],
+					"required": true
+				},
+				{
+					"attrName": "created",
+					"attrType": "Date",
+					"dateConstraint": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "user_created",
+					"attrType": "Boolean",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "season_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				}
+			]
+		},
+		{
+			"name": "competition_team",
+			"attrs": [
+				{
+					"attrName": "competition_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "team_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				}
+			]
+		},
+		{
+			"name": "team",
+			"attrs": [
+				{
+					"attrName": "name",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "img_location",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "icon_location",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "team_text",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "ground_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "team_type",
+					"attrType": "Enum",
+					"enumValues": [
+						"domestic",
+						" international",
+						" sevens-domestic",
+						" sevens-international",
+						" exhibition",
+						" other"
+					],
+					"required": true
+				},
+				{
+					"attrName": "established",
+					"attrType": "Date",
+					"dateConstraint": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "season_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				}
+			]
+		},
+		{
+			"name": "player_team",
+			"attrs": [
+				{
+					"attrName": "player_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "team_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				}
+			]
+		},
+		{
+			"name": "match",
+			"attrs": [
+				{
+					"attrName": "competition_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "home_match_team_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "away_match_team_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "match_text",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "ground_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "home_score",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "away_score",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "img_location",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "match_date",
+					"attrType": "Date",
+					"dateConstraint": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "match_outcome",
+					"attrType": "Enum",
+					"enumValues": [
+						"home_win",
+						" away_win",
+						" draw",
+						" postponed",
+						" cancelled",
+						" rescheduled"
+					],
+					"required": true
+				},
+				{
+					"attrName": "match_type",
+					"attrType": "Enum",
+					"enumValues": [
+						"league",
+						" last32",
+						" last16",
+						" quarter_finals",
+						" semi_finals",
+						" final",
+						" bronze_final",
+						" friendly",
+						" exhibition",
+						" test"
+					],
+					"required": true
+				}
+			]
+		},
+		{
+			"name": "match_team",
+			"attrs": [
+				{
+					"attrName": "match_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "team_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "squad_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				}
+			]
+		},
+		{
+			"name": "event",
+			"attrs": [
+				{
+					"attrName": "event_type",
+					"attrType": "Enum",
+					"enumValues": [
+						"try",
+						"conversion",
+						"penalty",
+						"missed_conversion",
+						"missed_penalty",
+						"drop_goal",
+						"missed_drop_goal",
+						"yellow_card",
+						"red_card",
+						"replacement",
+						"blood_replacment"
+					],
+					"required": true
+				},
+				{
+					"attrName": "minute",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "player_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "match_team_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "event_text",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": false
+				}
+			]
+		},
+		{
+			"name": "squad",
+			"attrs": [
+				{
+					"attrName": "tighthead_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "loosehead_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "hooker_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "lock_4_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "lock_5_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "flanker_6_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "flanker_7_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "number_8_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "scrum_half_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "fly_half_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "wing_11_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "inside_centre_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "outside_centre_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "wing_14_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "full_back_id",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				}
+			]
+		},
+		{
+			"name": "player",
+			"attrs": [
+				{
+					"attrName": "name",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "date_of_birth",
+					"attrType": "Date",
+					"dateConstraint": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "height",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "weight",
+					"attrType": "Integer",
+					"min": "",
+					"max": "",
+					"enumValues": [],
+					"required": true
+				},
+				{
+					"attrName": "player_text",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "retired",
+					"attrType": "Boolean",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "user_created",
+					"attrType": "Boolean",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "image_location",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": false
+				},
+				{
+					"attrName": "icon_location",
+					"attrType": "String",
+					"minLength": "",
+					"maxLength": "",
+					"enumValues": [],
+					"required": false
+				}
+			]
+		}
+	],
+	"resources": []
+}

@@ -1,0 +1,93 @@
+<div>
+
+    <h2>Competition_teams</h2>
+
+    <script type = "text/ng-template" id="competition_team-save.html">
+        <form name="form" role="form" novalidate
+              class="ng-scope ng-invalid ng-invalid-required ng-dirty"
+              ng-submit="ok()">
+
+            <div class="modal-header">
+                <button type="button" class="close"
+                        ng-click="cancel()">&times;</button>
+                <h4 class="modal-title" id="myCompetition_teamLabel">Create or edit a Competition_team</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" class="form-control" name="id"
+                           ng-model="competition_team.id" readonly>
+                </div>
+
+                
+                <div class="form-group">
+                    <label>competition_id:</label>
+                    
+                    <input type="number" class="form-control" name="competition_id"
+                           ng-model="competition_team.competition_id" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.competition_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.competition_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>team_id:</label>
+                    
+                    <input type="number" class="form-control" name="team_id"
+                           ng-model="competition_team.team_id" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.team_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.team_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="cancel()">Cancel
+                </button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </script>
+
+    <button class="btn btn-primary btn-lg" ng-click="create()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new Competition_team
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                
+                <th>competition_id</th>
+                
+                <th>team_id</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="competition_team in competition_teams">
+                <td>{{competition_team.id}}</td>
+                
+                <td>{{competition_team.competition_id }}</td>
+                
+                <td>{{competition_team.team_id }}</td>
+                
+                <td>
+                    <button type="submit"
+                            ng-click="update(competition_team.id)"
+                            class="btn">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </button>
+                    <button type="submit"
+                            ng-click="delete(competition_team.id)"
+                            class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

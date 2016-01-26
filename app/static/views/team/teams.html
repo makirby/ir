@@ -1,0 +1,181 @@
+<div>
+
+    <h2>Teams</h2>
+
+    <script type = "text/ng-template" id="team-save.html">
+        <form name="form" role="form" novalidate
+              class="ng-scope ng-invalid ng-invalid-required ng-dirty"
+              ng-submit="ok()">
+
+            <div class="modal-header">
+                <button type="button" class="close"
+                        ng-click="cancel()">&times;</button>
+                <h4 class="modal-title" id="myTeamLabel">Create or edit a Team</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" class="form-control" name="id"
+                           ng-model="team.id" readonly>
+                </div>
+
+                
+                <div class="form-group">
+                    <label>name:</label>
+                    
+                    <input type="text" class="form-control" name="name"
+                           ng-model="team.name" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.name.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.name.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>img_location:</label>
+                    
+                    <input type="text" class="form-control" name="img_location"
+                           ng-model="team.img_location" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.img_location.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.img_location.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>icon_location:</label>
+                    
+                    <input type="text" class="form-control" name="icon_location"
+                           ng-model="team.icon_location" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.icon_location.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.icon_location.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>team_text:</label>
+                    
+                    <input type="text" class="form-control" name="team_text"
+                           ng-model="team.team_text" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.team_text.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.team_text.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>ground_id:</label>
+                    
+                    <input type="number" class="form-control" name="ground_id"
+                           ng-model="team.ground_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.ground_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.ground_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>team_type:</label>
+                    
+                    <label class="radio"><input type="radio" name="team_type" value="domestic"
+                           ng-model="team.team_type" ng-required="true"/> domestic </label>
+                    <label class="radio"><input type="radio" name="team_type" value=" international"
+                           ng-model="team.team_type" ng-required="true"/>  international </label>
+                    <label class="radio"><input type="radio" name="team_type" value=" sevens-domestic"
+                           ng-model="team.team_type" ng-required="true"/>  sevens-domestic </label>
+                    <label class="radio"><input type="radio" name="team_type" value=" sevens-international"
+                           ng-model="team.team_type" ng-required="true"/>  sevens-international </label>
+                    <label class="radio"><input type="radio" name="team_type" value=" exhibition"
+                           ng-model="team.team_type" ng-required="true"/>  exhibition </label>
+                    <label class="radio"><input type="radio" name="team_type" value=" other"
+                           ng-model="team.team_type" ng-required="true"/>  other </label>
+                </div>
+                
+                <div class="form-group">
+                    <label>established:</label>
+                    
+                    <input type="text" class="form-control" name="established" ui-date="establishedDateOptions" ui-date-format="yy-mm-dd" 
+                           ng-model="team.established" ng-required="false"/>
+                </div>
+                
+                <div class="form-group">
+                    <label>season_id:</label>
+                    
+                    <input type="number" class="form-control" name="season_id"
+                           ng-model="team.season_id" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.season_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.season_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="cancel()">Cancel
+                </button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </script>
+
+    <button class="btn btn-primary btn-lg" ng-click="create()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new Team
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                
+                <th>name</th>
+                
+                <th>img_location</th>
+                
+                <th>icon_location</th>
+                
+                <th>team_text</th>
+                
+                <th>ground_id</th>
+                
+                <th>team_type</th>
+                
+                <th>established</th>
+                
+                <th>season_id</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="team in teams">
+                <td>{{team.id}}</td>
+                
+                <td>{{team.name }}</td>
+                
+                <td>{{team.img_location }}</td>
+                
+                <td>{{team.icon_location }}</td>
+                
+                <td>{{team.team_text }}</td>
+                
+                <td>{{team.ground_id }}</td>
+                
+                <td>{{team.team_type }}</td>
+                
+                <td>{{team.established  | date:'yyyy-MM-dd'}}</td>
+                
+                <td>{{team.season_id }}</td>
+                
+                <td>
+                    <button type="submit"
+                            ng-click="update(team.id)"
+                            class="btn">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </button>
+                    <button type="submit"
+                            ng-click="delete(team.id)"
+                            class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

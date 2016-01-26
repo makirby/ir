@@ -1,0 +1,275 @@
+<div>
+
+    <h2>Squads</h2>
+
+    <script type = "text/ng-template" id="squad-save.html">
+        <form name="form" role="form" novalidate
+              class="ng-scope ng-invalid ng-invalid-required ng-dirty"
+              ng-submit="ok()">
+
+            <div class="modal-header">
+                <button type="button" class="close"
+                        ng-click="cancel()">&times;</button>
+                <h4 class="modal-title" id="mySquadLabel">Create or edit a Squad</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" class="form-control" name="id"
+                           ng-model="squad.id" readonly>
+                </div>
+
+                
+                <div class="form-group">
+                    <label>tighthead_id:</label>
+                    
+                    <input type="number" class="form-control" name="tighthead_id"
+                           ng-model="squad.tighthead_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.tighthead_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.tighthead_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>loosehead_id:</label>
+                    
+                    <input type="number" class="form-control" name="loosehead_id"
+                           ng-model="squad.loosehead_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.loosehead_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.loosehead_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>hooker_id:</label>
+                    
+                    <input type="number" class="form-control" name="hooker_id"
+                           ng-model="squad.hooker_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.hooker_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.hooker_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>lock_4_id:</label>
+                    
+                    <input type="number" class="form-control" name="lock_4_id"
+                           ng-model="squad.lock_4_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.lock_4_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.lock_4_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>lock_5_id:</label>
+                    
+                    <input type="number" class="form-control" name="lock_5_id"
+                           ng-model="squad.lock_5_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.lock_5_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.lock_5_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>flanker_6_id:</label>
+                    
+                    <input type="number" class="form-control" name="flanker_6_id"
+                           ng-model="squad.flanker_6_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.flanker_6_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.flanker_6_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>flanker_7_id:</label>
+                    
+                    <input type="number" class="form-control" name="flanker_7_id"
+                           ng-model="squad.flanker_7_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.flanker_7_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.flanker_7_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>number_8_id:</label>
+                    
+                    <input type="number" class="form-control" name="number_8_id"
+                           ng-model="squad.number_8_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.number_8_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.number_8_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>scrum_half_id:</label>
+                    
+                    <input type="number" class="form-control" name="scrum_half_id"
+                           ng-model="squad.scrum_half_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.scrum_half_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.scrum_half_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>fly_half_id:</label>
+                    
+                    <input type="number" class="form-control" name="fly_half_id"
+                           ng-model="squad.fly_half_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.fly_half_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.fly_half_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>wing_11_id:</label>
+                    
+                    <input type="number" class="form-control" name="wing_11_id"
+                           ng-model="squad.wing_11_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.wing_11_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.wing_11_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>inside_centre_id:</label>
+                    
+                    <input type="number" class="form-control" name="inside_centre_id"
+                           ng-model="squad.inside_centre_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.inside_centre_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.inside_centre_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>outside_centre_id:</label>
+                    
+                    <input type="number" class="form-control" name="outside_centre_id"
+                           ng-model="squad.outside_centre_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.outside_centre_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.outside_centre_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>wing_14_id:</label>
+                    
+                    <input type="number" class="form-control" name="wing_14_id"
+                           ng-model="squad.wing_14_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.wing_14_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.wing_14_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>full_back_id:</label>
+                    
+                    <input type="number" class="form-control" name="full_back_id"
+                           ng-model="squad.full_back_id" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.full_back_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.full_back_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="cancel()">Cancel
+                </button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </script>
+
+    <button class="btn btn-primary btn-lg" ng-click="create()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new Squad
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                
+                <th>tighthead_id</th>
+                
+                <th>loosehead_id</th>
+                
+                <th>hooker_id</th>
+                
+                <th>lock_4_id</th>
+                
+                <th>lock_5_id</th>
+                
+                <th>flanker_6_id</th>
+                
+                <th>flanker_7_id</th>
+                
+                <th>number_8_id</th>
+                
+                <th>scrum_half_id</th>
+                
+                <th>fly_half_id</th>
+                
+                <th>wing_11_id</th>
+                
+                <th>inside_centre_id</th>
+                
+                <th>outside_centre_id</th>
+                
+                <th>wing_14_id</th>
+                
+                <th>full_back_id</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="squad in squads">
+                <td>{{squad.id}}</td>
+                
+                <td>{{squad.tighthead_id }}</td>
+                
+                <td>{{squad.loosehead_id }}</td>
+                
+                <td>{{squad.hooker_id }}</td>
+                
+                <td>{{squad.lock_4_id }}</td>
+                
+                <td>{{squad.lock_5_id }}</td>
+                
+                <td>{{squad.flanker_6_id }}</td>
+                
+                <td>{{squad.flanker_7_id }}</td>
+                
+                <td>{{squad.number_8_id }}</td>
+                
+                <td>{{squad.scrum_half_id }}</td>
+                
+                <td>{{squad.fly_half_id }}</td>
+                
+                <td>{{squad.wing_11_id }}</td>
+                
+                <td>{{squad.inside_centre_id }}</td>
+                
+                <td>{{squad.outside_centre_id }}</td>
+                
+                <td>{{squad.wing_14_id }}</td>
+                
+                <td>{{squad.full_back_id }}</td>
+                
+                <td>
+                    <button type="submit"
+                            ng-click="update(squad.id)"
+                            class="btn">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </button>
+                    <button type="submit"
+                            ng-click="delete(squad.id)"
+                            class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

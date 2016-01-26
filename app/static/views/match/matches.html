@@ -1,0 +1,238 @@
+<div>
+
+    <h2>Matches</h2>
+
+    <script type = "text/ng-template" id="match-save.html">
+        <form name="form" role="form" novalidate
+              class="ng-scope ng-invalid ng-invalid-required ng-dirty"
+              ng-submit="ok()">
+
+            <div class="modal-header">
+                <button type="button" class="close"
+                        ng-click="cancel()">&times;</button>
+                <h4 class="modal-title" id="myMatchLabel">Create or edit a Match</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" class="form-control" name="id"
+                           ng-model="match.id" readonly>
+                </div>
+
+                
+                <div class="form-group">
+                    <label>competition_id:</label>
+                    
+                    <input type="number" class="form-control" name="competition_id"
+                           ng-model="match.competition_id" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.competition_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.competition_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>home_match_team_id:</label>
+                    
+                    <input type="number" class="form-control" name="home_match_team_id"
+                           ng-model="match.home_match_team_id" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.home_match_team_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.home_match_team_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>away_match_team_id:</label>
+                    
+                    <input type="number" class="form-control" name="away_match_team_id"
+                           ng-model="match.away_match_team_id" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.away_match_team_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.away_match_team_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>match_text:</label>
+                    
+                    <input type="text" class="form-control" name="match_text"
+                           ng-model="match.match_text" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.match_text.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.match_text.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>ground_id:</label>
+                    
+                    <input type="number" class="form-control" name="ground_id"
+                           ng-model="match.ground_id" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.ground_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.ground_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>home_score:</label>
+                    
+                    <input type="number" class="form-control" name="home_score"
+                           ng-model="match.home_score" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.home_score.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.home_score.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>away_score:</label>
+                    
+                    <input type="number" class="form-control" name="away_score"
+                           ng-model="match.away_score" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.away_score.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.away_score.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>img_location:</label>
+                    
+                    <input type="text" class="form-control" name="img_location"
+                           ng-model="match.img_location" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.img_location.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.img_location.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>match_date:</label>
+                    
+                    <input type="text" class="form-control" name="match_date" ui-date="match_dateDateOptions" ui-date-format="yy-mm-dd" 
+                           ng-model="match.match_date" ng-required="true"/>
+                </div>
+                
+                <div class="form-group">
+                    <label>match_outcome:</label>
+                    
+                    <label class="radio"><input type="radio" name="match_outcome" value="home_win"
+                           ng-model="match.match_outcome" ng-required="true"/> home_win </label>
+                    <label class="radio"><input type="radio" name="match_outcome" value=" away_win"
+                           ng-model="match.match_outcome" ng-required="true"/>  away_win </label>
+                    <label class="radio"><input type="radio" name="match_outcome" value=" draw"
+                           ng-model="match.match_outcome" ng-required="true"/>  draw </label>
+                    <label class="radio"><input type="radio" name="match_outcome" value=" postponed"
+                           ng-model="match.match_outcome" ng-required="true"/>  postponed </label>
+                    <label class="radio"><input type="radio" name="match_outcome" value=" cancelled"
+                           ng-model="match.match_outcome" ng-required="true"/>  cancelled </label>
+                    <label class="radio"><input type="radio" name="match_outcome" value=" rescheduled"
+                           ng-model="match.match_outcome" ng-required="true"/>  rescheduled </label>
+                </div>
+                
+                <div class="form-group">
+                    <label>match_type:</label>
+                    
+                    <label class="radio"><input type="radio" name="match_type" value="league"
+                           ng-model="match.match_type" ng-required="true"/> league </label>
+                    <label class="radio"><input type="radio" name="match_type" value=" last32"
+                           ng-model="match.match_type" ng-required="true"/>  last32 </label>
+                    <label class="radio"><input type="radio" name="match_type" value=" last16"
+                           ng-model="match.match_type" ng-required="true"/>  last16 </label>
+                    <label class="radio"><input type="radio" name="match_type" value=" quarter_finals"
+                           ng-model="match.match_type" ng-required="true"/>  quarter_finals </label>
+                    <label class="radio"><input type="radio" name="match_type" value=" semi_finals"
+                           ng-model="match.match_type" ng-required="true"/>  semi_finals </label>
+                    <label class="radio"><input type="radio" name="match_type" value=" final"
+                           ng-model="match.match_type" ng-required="true"/>  final </label>
+                    <label class="radio"><input type="radio" name="match_type" value=" bronze_final"
+                           ng-model="match.match_type" ng-required="true"/>  bronze_final </label>
+                    <label class="radio"><input type="radio" name="match_type" value=" friendly"
+                           ng-model="match.match_type" ng-required="true"/>  friendly </label>
+                    <label class="radio"><input type="radio" name="match_type" value=" exhibition"
+                           ng-model="match.match_type" ng-required="true"/>  exhibition </label>
+                    <label class="radio"><input type="radio" name="match_type" value=" test"
+                           ng-model="match.match_type" ng-required="true"/>  test </label>
+                </div>
+                
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="cancel()">Cancel
+                </button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </script>
+
+    <button class="btn btn-primary btn-lg" ng-click="create()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new Match
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                
+                <th>competition_id</th>
+                
+                <th>home_match_team_id</th>
+                
+                <th>away_match_team_id</th>
+                
+                <th>match_text</th>
+                
+                <th>ground_id</th>
+                
+                <th>home_score</th>
+                
+                <th>away_score</th>
+                
+                <th>img_location</th>
+                
+                <th>match_date</th>
+                
+                <th>match_outcome</th>
+                
+                <th>match_type</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="match in matches">
+                <td>{{match.id}}</td>
+                
+                <td>{{match.competition_id }}</td>
+                
+                <td>{{match.home_match_team_id }}</td>
+                
+                <td>{{match.away_match_team_id }}</td>
+                
+                <td>{{match.match_text }}</td>
+                
+                <td>{{match.ground_id }}</td>
+                
+                <td>{{match.home_score }}</td>
+                
+                <td>{{match.away_score }}</td>
+                
+                <td>{{match.img_location }}</td>
+                
+                <td>{{match.match_date  | date:'yyyy-MM-dd'}}</td>
+                
+                <td>{{match.match_outcome }}</td>
+                
+                <td>{{match.match_type }}</td>
+                
+                <td>
+                    <button type="submit"
+                            ng-click="update(match.id)"
+                            class="btn">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </button>
+                    <button type="submit"
+                            ng-click="delete(match.id)"
+                            class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

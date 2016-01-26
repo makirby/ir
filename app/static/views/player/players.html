@@ -1,0 +1,182 @@
+<div>
+
+    <h2>Players</h2>
+
+    <script type = "text/ng-template" id="player-save.html">
+        <form name="form" role="form" novalidate
+              class="ng-scope ng-invalid ng-invalid-required ng-dirty"
+              ng-submit="ok()">
+
+            <div class="modal-header">
+                <button type="button" class="close"
+                        ng-click="cancel()">&times;</button>
+                <h4 class="modal-title" id="myPlayerLabel">Create or edit a Player</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" class="form-control" name="id"
+                           ng-model="player.id" readonly>
+                </div>
+
+                
+                <div class="form-group">
+                    <label>name:</label>
+                    
+                    <input type="text" class="form-control" name="name"
+                           ng-model="player.name" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.name.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.name.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>date_of_birth:</label>
+                    
+                    <input type="text" class="form-control" name="date_of_birth" ui-date="date_of_birthDateOptions" ui-date-format="yy-mm-dd" 
+                           ng-model="player.date_of_birth" ng-required="false"/>
+                </div>
+                
+                <div class="form-group">
+                    <label>height:</label>
+                    
+                    <input type="number" class="form-control" name="height"
+                           ng-model="player.height" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.height.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.height.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>weight:</label>
+                    
+                    <input type="number" class="form-control" name="weight"
+                           ng-model="player.weight" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.weight.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.weight.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>player_text:</label>
+                    
+                    <input type="text" class="form-control" name="player_text"
+                           ng-model="player.player_text" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.player_text.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.player_text.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>retired:</label>
+                    
+                    <input type="checkbox" name="retired"
+                           ng-model="player.retired" ng-required="false"/>
+                </div>
+                
+                <div class="form-group">
+                    <label>user_created:</label>
+                    
+                    <input type="checkbox" name="user_created"
+                           ng-model="player.user_created" ng-required="false"/>
+                </div>
+                
+                <div class="form-group">
+                    <label>image_location:</label>
+                    
+                    <input type="text" class="form-control" name="image_location"
+                           ng-model="player.image_location" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.image_location.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.image_location.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>icon_location:</label>
+                    
+                    <input type="text" class="form-control" name="icon_location"
+                           ng-model="player.icon_location" ng-required="false"
+                           />
+                    <span class="error" ng-show="form.icon_location.$error.minlength">Must be at least  characters.</span>
+                    <span class="error" ng-show="form.icon_location.$error.maxlength">Must be at most  characters.</span>
+                </div>
+                
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="cancel()">Cancel
+                </button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </script>
+
+    <button class="btn btn-primary btn-lg" ng-click="create()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new Player
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                
+                <th>name</th>
+                
+                <th>date_of_birth</th>
+                
+                <th>height</th>
+                
+                <th>weight</th>
+                
+                <th>player_text</th>
+                
+                <th>retired</th>
+                
+                <th>user_created</th>
+                
+                <th>image_location</th>
+                
+                <th>icon_location</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="player in players">
+                <td>{{player.id}}</td>
+                
+                <td>{{player.name }}</td>
+                
+                <td>{{player.date_of_birth  | date:'yyyy-MM-dd'}}</td>
+                
+                <td>{{player.height }}</td>
+                
+                <td>{{player.weight }}</td>
+                
+                <td>{{player.player_text }}</td>
+                
+                <td>{{player.retired }}</td>
+                
+                <td>{{player.user_created }}</td>
+                
+                <td>{{player.image_location }}</td>
+                
+                <td>{{player.icon_location }}</td>
+                
+                <td>
+                    <button type="submit"
+                            ng-click="update(player.id)"
+                            class="btn">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </button>
+                    <button type="submit"
+                            ng-click="delete(player.id)"
+                            class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

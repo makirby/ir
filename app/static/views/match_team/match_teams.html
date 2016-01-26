@@ -1,0 +1,107 @@
+<div>
+
+    <h2>Match_teams</h2>
+
+    <script type = "text/ng-template" id="match_team-save.html">
+        <form name="form" role="form" novalidate
+              class="ng-scope ng-invalid ng-invalid-required ng-dirty"
+              ng-submit="ok()">
+
+            <div class="modal-header">
+                <button type="button" class="close"
+                        ng-click="cancel()">&times;</button>
+                <h4 class="modal-title" id="myMatch_teamLabel">Create or edit a Match_team</h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-group">
+                    <label>ID</label>
+                    <input type="text" class="form-control" name="id"
+                           ng-model="match_team.id" readonly>
+                </div>
+
+                
+                <div class="form-group">
+                    <label>match_id:</label>
+                    
+                    <input type="number" class="form-control" name="match_id"
+                           ng-model="match_team.match_id" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.match_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.match_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>team_id:</label>
+                    
+                    <input type="number" class="form-control" name="team_id"
+                           ng-model="match_team.team_id" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.team_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.team_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+                <div class="form-group">
+                    <label>squad_id:</label>
+                    
+                    <input type="number" class="form-control" name="squad_id"
+                           ng-model="match_team.squad_id" ng-required="true"
+                           />
+                    <span class="error" ng-show="form.squad_id.$error.min">Must be greater than or equal to .</span>
+                    <span class="error" ng-show="form.squad_id.$error.max">Must be less than or equal to .</span>
+                </div>
+                
+
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" ng-click="cancel()">Cancel
+                </button>
+                <button type="submit" ng-disabled="form.$invalid" class="btn btn-primary">Save</button>
+            </div>
+        </form>
+    </script>
+
+    <button class="btn btn-primary btn-lg" ng-click="create()">
+        <span class="glyphicon glyphicon-flash"></span> Create a new Match_team
+    </button>
+
+    <div class="table-responsive">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+                <th>ID</th>
+                
+                <th>match_id</th>
+                
+                <th>team_id</th>
+                
+                <th>squad_id</th>
+                
+            </tr>
+            </thead>
+            <tbody>
+            <tr ng-repeat="match_team in match_teams">
+                <td>{{match_team.id}}</td>
+                
+                <td>{{match_team.match_id }}</td>
+                
+                <td>{{match_team.team_id }}</td>
+                
+                <td>{{match_team.squad_id }}</td>
+                
+                <td>
+                    <button type="submit"
+                            ng-click="update(match_team.id)"
+                            class="btn">
+                        <span class="glyphicon glyphicon-pencil"></span> Edit
+                    </button>
+                    <button type="submit"
+                            ng-click="delete(match_team.id)"
+                            class="btn btn-danger">
+                        <span class="glyphicon glyphicon-remove-circle"></span> Delete
+                    </button>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

@@ -7,3 +7,5 @@ db_repository
 flask
 infor
 node_modules
+app/static/lib
+.idea
